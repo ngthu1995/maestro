@@ -1,95 +1,67 @@
-import Image from "next/image";
+"use client";
+import { useState, useCallback } from "react";
+import Papa from "papaparse";
+
+import Dropzone from "./dropZone";
+import { lookUpGrid, formatFile } from "./algorithm";
+
 import styles from "./page.module.css";
 
-export default function Home() {
+const Home = () => {
+  const [fileUpload, setFileUpload] = useState(null);
+  const [connectedShape, setConnectedShape] = useState(0);
+
+  const onFileUpload = (file = {}) => {
+    setFileUpload(file.name);
+  };
+
+  const getConnectedShape = (result = {}) => {
+    const formatedFile = formatFile(result.data || []);
+    const shapeNumber = lookUpGrid(formatedFile);
+
+    setConnectedShape(shapeNumber);
+  };
+
+  const onDrop = useCallback((acceptedFiles) => {
+    acceptedFiles.map((file) => {
+      Papa.parse(file, {
+        complete: function (result) {
+          onFileUpload(file);
+          getConnectedShape(result);
+        },
+      });
+      return file;
+    });
+  }, []);
+
   return (
     <main className={styles.main}>
+      <h1>Maestro AI Programming Puzzle</h1>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
+          Get started by uploading a text file that contains 0's and 1's in a
+          regular N x M sized grid
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Dropzone onDrop={onDrop} fileUpload={fileUpload} accept={".txt/*"} />
 
       <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <h2>Number of connected shapes</h2>
+        <h2>{connectedShape}</h2>
+      </div>
 
+      <div style={{ fontWeight: "bold" }}>
         <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
+          href="https://ngthu1995.github.io/portfolio"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
+          By Thu Nguyen(Tina)
         </a>
       </div>
     </main>
   );
-}
+};
+
+export default Home;
