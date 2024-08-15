@@ -39,11 +39,7 @@ at position (2, 2)
 
 You only need to return the number of connected shapes that you've found. You do not need to return the position of the shapes.
 
-File Links:
-
-Download [data_large.tx](/public/data_large.tx)
-
-Download [data_small.tx](/public/data_small.tx)
+File links can be found under public folder
 
 ![screenshot](/public/preview.png)
 
