@@ -41,11 +41,11 @@ You only need to return the number of connected shapes that you've found. You do
 
 File Links:
 
-Download [data_large.tx](/public/data_large.tx)
+Download [data_large.tx](/client/public/data_large.tx)
 
-Download [data_small.tx](/public/data_small.tx)
+Download [data_small.tx](/client/public/data_small.tx)
 
-![screenshot](/public/preview.png)
+![screenshot](/client/public/preview.png)
 
 ## Getting Started
 
