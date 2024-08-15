@@ -39,8 +39,8 @@ const Home = () => {
       <h1>Maestro AI Programming Puzzle</h1>
       <div className={styles.description}>
         <p>
-          Get started by uploading a text file that contains 0's and 1's in a
-          regular N x M sized grid
+          Get started by uploading a text file that contains 0&apos;s and
+          1&apos; in a regular N x M sized grid
         </p>
       </div>
 
