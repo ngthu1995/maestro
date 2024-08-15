@@ -1,5 +1,7 @@
 ## Maestro AI Programming Puzzle.
 
+[Project Website:](https://maestro-gamma.vercel.app/)
+
 ## Instructions:
 
 You will be provided links to download two files: data_small.txt and data_large.txt
@@ -42,6 +44,8 @@ File Links:
 Download [data_large.tx](./public/data_large.tx)
 
 Download [data_small.tx](./public/data_small.tx)
+
+![screenshot](./public/preview.png)
 
 ## Getting Started
 
