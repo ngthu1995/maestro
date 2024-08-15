@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Maestro AI Programing Puzzle",
+  title: "Maestro AI Programming Puzzle",
 };
 
 export default function RootLayout({ children }) {

@@ -1,8 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) for Maestro AI Programing Puzzle.
+## Maestro AI Programming Puzzle.
 
-This challenge is designed to assess your problem-solving and programming skills. Please read the instructions carefully before you begin.
+## Instructions:
 
-Instructions:
 You will be provided links to download two files: data_small.txt and data_large.txt
 Your task is to write a program that processes these files to solve the given problem.
 After running your program on each file, enter the results into this form.
